@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics of Web Development</title>
+    <style>
+        /* Step 2: Style the Webpage Using CSS */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #005b54;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #005b54;
+            margin-top: 15px;
+        }
+
+        .btn {
+            background-color: #005b54;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #00443e;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to My First Webpage</h1>
+    <p>I am learning foundational HTML, CSS, and JavaScript concepts. This layout is styled cleanly and features an interactive button below.</p>
+    
+    <img src="https://picsum.photos/150" alt="Placeholder Profile Image" class="profile-img">
+
+    <br>
+    
+    <button class="btn" id="alertBtn">Click Me!</button>
+
+    <script>
+        // Target the button using its ID
+        const button = document.getElementById('alertBtn');
+
+        // Add a click event listener to trigger the alert message
+        button.addEventListener('click', () => {
+            alert('Hello! You successfully triggered a JavaScript alert. Great job!');
+        });
+    </script>
+
+</body>
+</html>
