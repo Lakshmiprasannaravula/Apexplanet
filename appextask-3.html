@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced Styling and JavaScript</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background: #f4f9f8;
+      padding: 30px;
+      color:#222;
+    }
+
+    .container{
+      max-width: 1000px;
+      margin:auto;
+      background:white;
+      padding:40px;
+      border-radius:15px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h1{
+      text-align:center;
+      color:#00695c;
+      margin-bottom:30px;
+      font-size:42px;
+    }
+
+    h2{
+      color:#00796b;
+      margin-top:20px;
+      margin-bottom:10px;
+    }
+
+    .section{
+      margin-bottom:30px;
+      line-height:1.8;
+    }
+
+    ul{
+      margin-left:25px;
+    }
+
+    /* Quiz Section */
+    .quiz-box{
+      margin-top:20px;
+      padding:20px;
+      background:#e0f2f1;
+      border-radius:10px;
+    }
+
+    button{
+      margin-top:15px;
+      padding:10px 20px;
+      border:none;
+      background:#00796b;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    button:hover{
+      background:#004d40;
+    }
+
+    #result{
+      margin-top:15px;
+      font-weight:bold;
+      color:#004d40;
+    }
+
+    /* API Section */
+    .api-box{
+      margin-top:20px;
+      background:#f1f8e9;
+      padding:20px;
+      border-radius:10px;
+    }
+
+    #joke{
+      margin-top:15px;
+      font-size:18px;
+      color:#333;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width:768px){
+
+      body{
+        padding:15px;
+      }
+
+      .container{
+        padding:20px;
+      }
+
+      h1{
+        font-size:28px;
+      }
+
+      h2{
+        font-size:22px;
+      }
+
+      p, li{
+        font-size:15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Advanced Styling and JavaScript</h1>
+
+    <div class="section">
+      <h2>Objective</h2>
+      <ul>
+        <li>Gain advanced skills in CSS and JavaScript for building interactive and responsive websites.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>1. Responsive Design Using Media Queries</h2>
+
+      <ul>
+        <li>Ensure websites work on mobile, tablet, and desktop.</li>
+        <li>Adjust layouts, fonts, and spacing using CSS media queries.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. Interactive Quiz Using JavaScript</h2>
+
+      <div class="quiz-box">
+
+        <p><strong>Question:</strong> Which language is used for webpage styling?</p>
+
+        <input type="radio" name="quiz" value="HTML"> HTML <br>
+        <input type="radio" name="quiz" value="CSS"> CSS <br>
+        <input type="radio" name="quiz" value="Python"> Python <br>
+
+        <button onclick="checkAnswer()">Submit Answer</button>
+
+        <p id="result"></p>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>3. Fetch Data from API Using JavaScript</h2>
+
+      <div class="api-box">
+
+        <button onclick="getJoke()">Get Random Joke</button>
+
+        <p id="joke"></p>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+
+    // Quiz Function
+    function checkAnswer(){
+
+      let answers = document.getElementsByName("quiz");
+      let result = document.getElementById("result");
+
+      for(let answer of answers){
+
+        if(answer.checked){
+
+          if(answer.value === "CSS"){
+            result.innerHTML = "✅ Correct Answer!";
+          }
+          else{
+            result.innerHTML = "❌ Wrong Answer!";
+          }
+
+        }
+
+      }
+    }
+
+    // API Fetch Function
+    async function getJoke(){
+
+      let response = await fetch("https://official-joke-api.appspot.com/random_joke");
+
+      let data = await response.json();
+
+      document.getElementById("joke").innerHTML =
+      data.setup + " 😂 " + data.punchline;
+    }
+
+  </script>
+
+</body>
+</html>
