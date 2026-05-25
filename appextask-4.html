@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Project Implementation</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    color:#333333;
+}
+
+/* HEADER */
+
+header{
+    background:linear-gradient(45deg,#00800b,#0018b3);
+    color:white;
+    padding:30px;
+    text-align:center;
+}
+
+header h1{
+    margin-bottom:10px;
+}
+
+/* NAVBAR */
+
+nav{
+    background:#222;
+    padding:15px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#00cc2cd3;
+}
+
+/* SECTION */
+
+section{
+    padding:50px 10%;
+}
+
+h2{
+    margin-bottom:20px;
+    color:#008080;
+}
+
+/* ABOUT */
+
+.about{
+    background:white;
+    border-radius:10px;
+    padding:30px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+/* PROJECTS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.project-card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.project-card:hover{
+    transform:scale(1.03);
+}
+
+/* TODO APP */
+
+.todo-container{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.todo-container input{
+    width:70%;
+    padding:10px;
+}
+
+.todo-container button{
+    padding:10px 15px;
+    background:#158000;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+.todo-container ul{
+    margin-top:20px;
+}
+
+.todo-container li{
+    background:#eee;
+    margin:10px 0;
+    padding:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* PRODUCT SECTION */
+
+.controls{
+    margin-bottom:20px;
+}
+
+.controls select{
+    padding:10px;
+    margin-right:10px;
+}
+
+.product-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.product{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+/* CONTACT */
+
+.contact{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>protfolio</h1>
+    <p>HTML, CSS & JavaScript Projects</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#todo">To-Do App</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- ABOUT -->
+
+<section id="about">
+    <div class="about">
+        <h2>About Me</h2>
+        <p>
+            Hi! I'm Lakshmi Prasanna, a beginner web developer passionate about creating beautiful and responsive websites using HTML, CSS, and JavaScript.
+        </p>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+    <h2>My Projects</h2>
+
+    <div class="projects">
+
+        <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>Professional multi-page responsive portfolio.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>To-Do App</h3>
+            <p>Task management app with Local Storage.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Product Listing</h3>
+            <p>Filter and sort products dynamically.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- TODO APP -->
+
+<section id="todo">
+    <h2>To-Do App</h2>
+
+    <div class="todo-container">
+
+        <input type="text" id="taskInput" placeholder="Enter task">
+        <button onclick="addTask()">Add</button>
+
+        <ul id="taskList"></ul>
+
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+
+<section id="products">
+
+    <h2>Product Listing Page</h2>
+
+    <div class="controls">
+
+        <select id="filter" onchange="filterProducts()">
+            <option value="all">All Categories</option>
+            <option value="electronics">Electronics</option>
+            <option value="fashion">Fashion</option>
+        </select>
+
+        <select id="sort" onchange="sortProducts()">
+            <option value="default">Sort By</option>
+            <option value="low">Price Low to High</option>
+            <option value="high">Price High to Low</option>
+        </select>
+
+    </div>
+
+    <div class="product-container" id="productContainer"></div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="contact">
+
+        <h2>Contact</h2>
+
+        <p>Email: lakshmiprasanna@gmail.com</p>
+        <p>Phone: +91 9876543210</p>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Lakshmi Prasanna | Web Developer</p>
+</footer>
+
+<script>
+
+/* =========================
+   TODO APP
+========================= */
+
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+displayTasks();
+
+function addTask(){
+
+    let input = document.getElementById("taskInput");
+
+    if(input.value === ""){
+        alert("Please enter task");
+        return;
+    }
+
+    tasks.push(input.value);
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    input.value = "";
+
+    displayTasks();
+}
+
+function displayTasks(){
+
+    let taskList = document.getElementById("taskList");
+
+    taskList.innerHTML = "";
+
+    tasks.forEach((task,index)=>{
+
+        taskList.innerHTML += `
+        
+        <li>
+            ${task}
+            <button onclick="deleteTask(${index})">Delete</button>
+        </li>
+        
+        `;
+    });
+}
+
+function deleteTask(index){
+
+    tasks.splice(index,1);
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    displayTasks();
+}
+
+/* =========================
+   PRODUCT LIST
+========================= */
+
+let products = [
+
+    {
+        name:"Laptop",
+        category:"electronics",
+        price:50000
+    },
+
+    {
+        name:"Mobile Phone",
+        category:"electronics",
+        price:20000
+    },
+
+    {
+        name:"Headphones",
+        category:"electronics",
+        price:3000
+    },
+
+    {
+        name:"Shirt",
+        category:"fashion",
+        price:1500
+    },
+
+    {
+        name:"Shoes",
+        category:"fashion",
+        price:2500
+    },
+
+    {
+        name:"Watch",
+        category:"fashion",
+        price:4000
+    }
+
+];
+
+displayProducts(products);
+
+function displayProducts(items){
+
+    let container = document.getElementById("productContainer");
+
+    container.innerHTML = "";
+
+    items.forEach(product => {
+
+        container.innerHTML += `
+
+        <div class="product">
+
+            <h3>${product.name}</h3>
+
+            <p>Category: ${product.category}</p>
+
+            <p>Price: ₹${product.price}</p>
+
+        </div>
+
+        `;
+    });
+}
+
+function filterProducts(){
+
+    let category = document.getElementById("filter").value;
+
+    let filteredProducts;
+
+    if(category === "all"){
+
+        filteredProducts = products;
+
+    } else {
+
+        filteredProducts = products.filter(product => product.category === category);
+    }
+
+    displayProducts(filteredProducts);
+}
+
+function sortProducts(){
+
+    let sortValue = document.getElementById("sort").value;
+
+    let sortedProducts = [...products];
+
+    if(sortValue === "low"){
+
+        sortedProducts.sort((a,b)=>a.price-b.price);
+
+    }
+
+    else if(sortValue === "high"){
+
+        sortedProducts.sort((a,b)=>b.price-a.price);
+
+    }
+
+    displayProducts(sortedProducts);
+}
+
+</script>
+
+</body>
+</html>
